@@ -13,6 +13,7 @@ let currentDay = "Sunday"; // Default starting day
 
 // Reference to DOM elements
 const budgetInput = document.getElementById("budget");
+const updateBudgetButton = document.getElementById("update-budget-btn");
 const daySelect = document.getElementById("day");
 const categorySelect = document.getElementById("category");
 const amountInput = document.getElementById("amount");
@@ -33,15 +34,15 @@ function updateDashboard() {
         weeklyExpenses[day].savings = savings;
 
         // Update each day's expenses and savings on the dashboard
-        document.getElementById(`${day.toLowerCase()}-expenses`).innerText = `$${expenses}`;
-        document.getElementById(`${day.toLowerCase()}-savings`).innerText = `$${savings}`;
+        document.getElementById(`{day.toLowerCase()}-expenses`).innerText = `$${expenses}`;
+        document.getElementById(`{day.toLowerCase()}-savings`).innerText = `$${savings}`;
         
         // Add to the total weekly savings
         totalWeekSavings += savings;
     }
 
     // Update total weekly savings
-    totalWeekSavingsElem.innerText = `$${totalWeekSavings}`;
+    totalWeekSavingsElem.innerText = `${totalWeekSavings}`;
 }
 
 // Update the expenses list for the selected day
@@ -94,8 +95,8 @@ daySelect.addEventListener("change", function() {
     budgetInput.value = weeklyExpenses[currentDay].budget; // Preload the budget input
 });
 
-// Handle entering the daily budget
-budgetInput.addEventListener("input", function() {
+// Handle updating the daily budget
+updateBudgetButton.addEventListener("click", function() {
     const dailyBudget = parseFloat(budgetInput.value);
     
     if (!isNaN(dailyBudget) && dailyBudget >= 0) {
@@ -106,3 +107,4 @@ budgetInput.addEventListener("input", function() {
 
 // Initialize the default view
 updateDashboard();
+

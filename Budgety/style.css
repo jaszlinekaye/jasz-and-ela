@@ -1,179 +1,132 @@
-/* General Reset */
-* {
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #FFF4D5;
+    color: #0A0903;
 }
 
-/* Body Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #97e7f5;
-    color: #333;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-}
-
-/* Header */
 header {
-    background-color: #01377D;
-    color: #fff;
-    padding: 1rem;
+    background-color: #0A0903;
+    color: #FFF4D5;
     text-align: center;
-    font-size: 1.5rem;
+    padding: 1em 0;
+    font-size: 1.8em;
     font-weight: bold;
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-/* Container for Dashboard and Form */
-.container {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 1200px;
 }
 
 /* Form Section */
 .form-section {
-    background-color: #fff;
-    padding: 2rem;
-    margin-right: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 50%;
+    padding: 20px;
+    background-color: #FFC929;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Form Inputs and Labels */
-h2, h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #01377D;
+.form-section h2, .form-section h3 {
+    color: #0A0903;
 }
 
-input, select {
+.form-section input, .form-section select, .form-section button {
+    display: block;
     width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #FF5100;
+    border-radius: 5px;
+    background-color: #FFF4D5;
+    color: #0A0903;
 }
 
-button {
-    background-color: #7ed348;
-    color: #fff;
-    border: none;
-    padding: 0.8rem;
-    width: 100%;
-    font-size: 1.1rem;
-    border-radius: 8px;
+.form-section button {
+    background-color: #FF5100;
+    color: #FFF4D5;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border: none;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #26b170;
+.form-section button:hover {
+    background-color: #FF8200;
 }
 
 /* Expense List */
 .expense-list {
-    background-color: #fff;
-    padding: 1.5rem;
-    margin-top: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #FF8200;
+    border-radius: 10px;
+    margin: 20px;
+    color: #FFF4D5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.expense-list h3 {
+    margin-top: 0;
+    color: #FFF4D5;
 }
 
 .expense-list ul {
-    list-style-type: none;
+    list-style: none;
+    padding: 0;
 }
 
 .expense-list li {
-    padding: 0.6rem 0;
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    border-bottom: 1px solid #FFC929;
 }
 
-.expense-list p {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #01377D;
+.expense-list li:last-child {
+    border-bottom: none;
 }
 
-/* Dashboard Styling */
+/* Dashboard */
 .dashboard {
-    background-color: #fff;
-    padding: 2rem;
-    margin-top: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 40%;
+    padding: 20px;
+    background-color: #FF5100;
+    border-radius: 10px;
+    margin: 20px;
+    color: #FFF4D5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: #01377D;
+.dashboard h2 {
+    color: #FFF4D5;
 }
 
-/* Table Styles */
-table {
+.dashboard table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
-    border-radius: 8px;
+    margin-top: 10px;
+    background-color: #FFF4D5;
+    color: #0A0903;
+    border-radius: 5px;
     overflow: hidden;
 }
 
-th, td {
-    padding: 1rem;
-    text-align: center;
-    font-size: 1rem;
-    border-bottom: 1px solid #ddd;
+.dashboard th, .dashboard td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #FFC929;
 }
 
-th {
-    background-color: #009DD1;
-    color: #fff;
+.dashboard th {
+    background-color: #FF5100;
+    color: #FFF4D5;
 }
 
-td {
-    background-color: #f9f9f9;
-}
-
-/* Total Week Savings */
-.total-week-savings {
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 1.2rem;
+.dashboard td:last-child {
     font-weight: bold;
-    color: #26b170;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .form-section, .dashboard {
-        width: 100%;
-        margin: 0;
-    }
-    
-    header {
-        font-size: 1.3rem;
-    }
-    
-    h2, h3 {
-        font-size: 1.1rem;
-    }
-    
-    button {
-        font-size: 1rem;
-    }
-    
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
+.total-week-savings {
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+    background-color: #FFC929;
+    color: #0A0903;
+    padding: 10px;
+    border-radius: 5px;
 }
