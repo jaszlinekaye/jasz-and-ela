@@ -14,11 +14,7 @@
 
     <div class="form-section">
         <h2>Enter Daily Budget</h2>
-        <div class="budget-input">
-            <input type="number" id="budget" placeholder="Enter budget for the day">
-            <button id="update-budget-btn">Update Budget</button>
-        </div>
-        
+
         <h3>Select Day</h3>
         <select id="day">
             <option value="Sunday">Sunday</option>
@@ -29,7 +25,10 @@
             <option value="Friday">Friday</option>
             <option value="Saturday">Saturday</option>
         </select>
-        
+        <div class="budget-input">
+            <input type="number" id="budget" placeholder="Enter budget for the day">
+            <button id="update-budget-btn">Update Budget</button>
+        </div>
         <h3>Select Category</h3>
         <select id="category">
             <option value="Transportation">Transportation</option>
@@ -43,6 +42,8 @@
         
         <button id="add-expense-btn">Add Expense</button>
     </div>
+
+
 
     <div class="expense-list">
         <h3>Expenses for <span id="current-day">Sunday</span></h3>

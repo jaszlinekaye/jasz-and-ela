@@ -1,12 +1,12 @@
 // Variables to track the daily expenses and budgets
 let weeklyExpenses = {
-    Sunday: { budget: 0, total: 0, savings: 0 },
-    Monday: { budget: 0, total: 0, savings: 0 },
-    Tuesday: { budget: 0, total: 0, savings: 0 },
-    Wednesday: { budget: 0, total: 0, savings: 0 },
-    Thursday: { budget: 0, total: 0, savings: 0 },
-    Friday: { budget: 0, total: 0, savings: 0 },
-    Saturday: { budget: 0, total: 0, savings: 0 }
+    Sunday: { budget: 0, total: 0, savings: 0, expenses: [] },
+    Monday: { budget: 0, total: 0, savings: 0, expenses: [] },
+    Tuesday: { budget: 0, total: 0, savings: 0, expenses: [] },
+    Wednesday: { budget: 0, total: 0, savings: 0, expenses: [] },
+    Thursday: { budget: 0, total: 0, savings: 0, expenses: [] },
+    Friday: { budget: 0, total: 0, savings: 0, expenses: [] },
+    Saturday: { budget: 0, total: 0, savings: 0, expenses: [] }
 };
 
 let currentDay = "Sunday"; // Default starting day
@@ -34,8 +34,8 @@ function updateDashboard() {
         weeklyExpenses[day].savings = savings;
 
         // Update each day's expenses and savings on the dashboard
-        document.getElementById(`{day.toLowerCase()}-expenses`).innerText = `$${expenses}`;
-        document.getElementById(`{day.toLowerCase()}-savings`).innerText = `$${savings}`;
+        document.getElementById(`${day.toLowerCase()}-expenses`).innerText = `${expenses}`;
+        document.getElementById(`${day.toLowerCase()}-savings`).innerText = `${savings}`;
         
         // Add to the total weekly savings
         totalWeekSavings += savings;
@@ -55,7 +55,7 @@ function updateExpenseList() {
     const expenses = weeklyExpenses[currentDay].expenses || [];
     expenses.forEach(item => {
         const li = document.createElement("li");
-        li.textContent = `${item.category}: $${item.amount}`;
+        li.textContent = `${item.category}: ${item.amount}`;
         expenseList.appendChild(li);
     });
 }
@@ -74,9 +74,6 @@ addExpenseButton.addEventListener("click", function() {
     weeklyExpenses[currentDay].total += amount;
 
     // Create a new expense entry for the current day
-    if (!weeklyExpenses[currentDay].expenses) {
-        weeklyExpenses[currentDay].expenses = [];
-    }
     weeklyExpenses[currentDay].expenses.push({ category, amount });
 
     // Update the expense list and dashboard
@@ -102,9 +99,10 @@ updateBudgetButton.addEventListener("click", function() {
     if (!isNaN(dailyBudget) && dailyBudget >= 0) {
         weeklyExpenses[currentDay].budget = dailyBudget;
     }
+
+    // Recalculate the savings and update the dashboard
     updateDashboard();
 });
 
 // Initialize the default view
 updateDashboard();
-
