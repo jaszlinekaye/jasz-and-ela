@@ -1,111 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+
+<html lang="en">  
+<head>    
+    <meta charset="UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Expenses Tracker</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>Expense Tracker</title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">  
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+
 </head>
 <body>
-
     <header>
-        Weekly Expenses Tracker
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <img src="assets/images/logopocketplan.png" alt="Logo">
+            </a>
+                    <ul class="links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                    <button class="signup-btn">Log In</button>
+        </nav> 
     </header>
 
-    <div class="form-section">
-        <h2>Enter Daily Budget</h2>
-
-        <h3>Select Day</h3>
-        <select id="day">
-            <option value="Sunday">Sunday</option>
-            <option value="Monday">Monday</option>
-            <option value="Tuesday">Tuesday</option>
-            <option value="Wednesday">Wednesday</option>
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-            <option value="Saturday">Saturday</option>
-        </select>
-        <div class="budget-input">
-            <input type="number" id="budget" placeholder="Enter budget for the day">
-            <button id="update-budget-btn">Update Budget</button>
+    <!-- Popup Form-->
+     <div class="blur-bg-overlay"></div>
+    <div class="popup-form">
+        <span class="close-btn material-symbols-rounded">X</span>
+        <div class="form-box login">
+            <div class="form-details">
+                <h2> Welcome Back</h2>
+                <p>Please Log In using your personal information to start</p>
+            </div>
+                <div class="form-content">
+                    <h2> LOGIN</h2>
+                        <form action="#">
+                            <div class="input-field">
+                                <input type="email" id="email" required>
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" id="password" required>
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="check-box">
+                                <input type="checkbox" id="check">
+                                <label for="check">Remember Me</label>
+                            </div>
+                        </form>
+                        <a href="#" class="forgot-pass">Forgot Password?</a>
+                        <button type="submit" formaction="app.html">Log In</button>
+                    </form>
+                    <div class="bottom-link">
+                        Don't have an account? 
+                        <a href="#" id="signup-link">Sign Up</a>
+                    </div>
+            </div>
         </div>
-        <h3>Select Category</h3>
-        <select id="category">
-            <option value="Transportation">Transportation</option>
-            <option value="Food">Food</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Others">Others</option>
-        </select>
-
-        <h3>Enter Amount</h3>
-        <input type="number" id="amount" placeholder="Enter amount for the expense">
         
-        <button id="add-expense-btn">Add Expense</button>
-    </div>
+        <div class="form-box signup">
+            <div class="form-details">
+                <h2> Create Account</h2>
+                <p>To become part of our community, please sign up using your personal information to start</p>
+            </div>
+                <div class="form-content">
+                    <h2> SIGN UP</h2>
+                        <form action="#">
+                            <div class="input-field">
+                                <input type="email" id="email" required>
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" id="password" required>
+                                <label for="password">Create password</label>
+                            </div>
+                            <div class="policy-text">
+                                <input type="checkbox" id="policy">
+                                <label for="policy">I agree to the 
+                                    <a href="#">terms and conditions</a>
+                                </label>
+                            </div>
 
-
-
-    <div class="expense-list">
-        <h3>Expenses for <span id="current-day">Sunday</span></h3>
-        <ul id="expense-list">
-            <!-- Expenses will be listed here -->
-        </ul>
-        <p>Total Expenses for the Day: <span id="total-expenses">0</span></p>
-    </div>
-
-    <div class="dashboard">
-        <h2>Weekly Dashboard</h2>
-        <table id="weekly-expenses">
-            <thead>
-                <tr>
-                    <th>Day</th>
-                    <th>Total Expenses</th>
-                    <th>Savings</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Sunday</td>
-                    <td id="sunday-expenses">0</td>
-                    <td id="sunday-savings">0</td>
-                </tr>
-                <tr>
-                    <td>Monday</td>
-                    <td id="monday-expenses">0</td>
-                    <td id="monday-savings">0</td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td id="tuesday-expenses">0</td>
-                    <td id="tuesday-savings">0</td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td id="wednesday-expenses">0</td>
-                    <td id="wednesday-savings">0</td>
-                </tr>
-                <tr>
-                    <td>Thursday</td>
-                    <td id="thursday-expenses">0</td>
-                    <td id="thursday-savings">0</td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td id="friday-expenses">0</td>
-                    <td id="friday-savings">0</td>
-                </tr>
-                <tr>
-                    <td>Saturday</td>
-                    <td id="saturday-expenses">0</td>
-                    <td id="saturday-savings">0</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="total-week-savings">
-            Total Savings for the Week: <span id="total-week-savings">0</span>
+                        </form>
+                        <a href="#" class="forgot-pass">Forgot Password?</a>
+                        <button type="submit">Sign Up</button>
+                    <form>
+                    <div class="bottom-link">
+                        Already have an account? 
+                        <a href="#" id="login-link">Log In</a>
+                    </div>
+                    </form>
+            </div>
         </div>
-    </div>
-
-    <script src="app.js"></script>
 </body>
 </html>

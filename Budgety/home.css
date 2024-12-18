@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Audiowide");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+html, body{
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    height: 100vh;
+    background:url("assets/images/bg3.jpg") center /cover no-repeat;
+}   
+
+header {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 0 10px;
+    background: transparent;
+    overflow-x: hidden; /* Safety measure */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Proper alignment */
+    padding: 0 20px;
+    max-width: 1400px; /* Limit navbar width */
+    margin: 0 auto; /* Center the navbar */
+}
+
+.navbar .logo {
+    display: flex;
+    gap: 120px;
+    align-items: center;
+}
+.navbar .logo img {
+    width: 130px;
+}
+.navbar .links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+.navbar .links a {
+    text-decoration: none;
+    color: #b5e4e2;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.navbar .links a:hover{
+    color: #459688;
+}
+.navbar .signup-btn {
+    border: none;
+    outline: none;
+    color: #459688;
+    background: #b5e4e2;
+    font-size: 1rem;
+    font-weight: 200;
+    padding: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 20px;
+    width: auto; /* Limit the button width */
+}
+.navbar .signup-btn:hover {
+    background: #fff; /* Change background to white */
+    color: #459688;  /* Ensure text remains the same color */
+    border: 1px solid #b5e4e2; /* Add a subtle border for contrast */
+    transition: background 0.3s, color 0.3s; /* Smooth transition effect */
+}

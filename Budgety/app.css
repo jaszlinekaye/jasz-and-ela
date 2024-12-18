@@ -1,0 +1,272 @@
+/* General Styling */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Audiowide");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: url("assets/images/bg3.jpg") center / cover no-repeat;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0; /* Remove space for header */
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  background: transparent;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.navbar .logo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar .logo img {
+  width: 130px;
+}
+
+.navbar .links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+.navbar .links a {
+  text-decoration: none;
+  color: #b5e4e2;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.navbar .links a:hover {
+  color: #459688;
+}
+.Signout{
+border: none;
+    outline: none;
+    color: #459688;
+    background: #b5e4e2;
+    font-size: 1rem;
+    font-weight: 200;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 20px;
+    width: auto; /* Limit the button width */
+}
+.Signout:hover {
+    background: #fff; /* Change background to white */
+    color: #459688;  /* Ensure text remains the same color */
+    border: 1px solid #b5e4e2; /* Add a subtle border for contrast */
+    transition: background 0.3s, color 0.3s; /* Smooth transition effect */
+}
+
+/* Main Content Layout */
+.container {
+  padding: 1em;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 70px; /* Space for header */
+}
+
+/* Daily Budget Form */
+.form-section {
+  margin-top: 120px;
+  margin-left: 80px;
+  width: 12cm;
+  height: 13cm;
+  background-color: #459688;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: #fff;
+  position: relative;
+}
+
+.form-section h2, .form-section h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.form-section input, .form-section select, .form-section button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #14746f;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #14746f;
+  box-sizing: border-box;
+}
+
+/* Button Hover and Focus */
+.form-section button {
+  background-color: #14746f;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.form-section button:hover {
+  background-color: #0e5552;
+}
+
+.form-section button:focus {
+  outline: 3px solid #0e5552;
+}
+
+/* Dashboard */
+.dashboard {
+  width: 12cm;
+  height: 11cm;
+  background-color: #14746f;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: #fff;
+  position: absolute;
+    right: 0;
+    margin-right: 120px;
+    margin-top: 200px;
+}
+
+.dashboard h2 {
+  color: #fff;
+}
+
+.dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #fff;
+  color: #14746f;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dashboard th, .dashboard td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #459688;
+}
+
+.dashboard th {
+  background-color: #14746f;
+  color: #fff;
+}
+
+.dashboard td:last-child {
+  font-weight: bold;
+}
+
+/* Total Expense of the Day */
+/* Expense List Section */
+.expense-list {
+    width: 18%;
+    background-color: #459688;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    color: #fff;
+    position: absolute;
+    margin-top: 250px;
+    margin-left: 600px;
+    max-height: 50vh; /* Set a max-height to ensure it doesn't grow too large */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+  }
+  
+  .expense-list h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .expense-list span {
+    font-weight: normal;
+    color: #fff;
+  }
+  
+  .expense-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+  .expense-list li {
+    padding: 10px;
+    border-bottom: 1px solid #14746f;
+  }
+  
+  .expense-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .expense-list p {
+    font-size: 1.1em;
+    margin-top: 15px;
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  #total-expenses {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffe600;
+  }
+  
+
+/* Media Query for Layout */
+@media (max-width: 768px) {
+  .form-section, .dashboard {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .total-expense {
+    width: 100%;
+  }
+
+  .navbar .logo img {
+    width: 100px;
+  }
+}

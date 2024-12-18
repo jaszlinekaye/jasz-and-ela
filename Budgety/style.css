@@ -1,158 +1,275 @@
-/* General Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #FFF4D5;
-    color: #0A0903;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Audiowide");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
+html, body{
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    height: 100vh;
+    background:url("assets/images/bg3.jpg") center /cover no-repeat;
+}   
 
 header {
-    background-color: #0A0903;
-    color: #FFF4D5;
-    text-align: center;
-    padding: 1em 0;
-    font-size: 1.8em;
-    font-weight: bold;
-}
-
-/* Form Section */
-.form-section {
-    padding: 20px;
-    background-color: #FFC929;
-    border-radius: 10px;
-    margin: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto; /* Center the form section */
-}
-
-.form-section h2, .form-section h3 {
-    color: #0A0903;
-    margin-bottom: 10px;
-}
-
-.form-section input, .form-section select, .form-section button {
-    display: block;
+    position: fixed;
     width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #FF5100;
-    border-radius: 5px;
-    background-color: #FFF4D5;
-    color: #0A0903;
-    box-sizing: border-box; /* To include padding and border in the width */
+    left: 0;
+    top: 0;
+    padding: 0 10px;
+    background: transparent;
+    overflow-x: hidden; /* Safety measure */
 }
 
-/* Button Hover and Focus */
-.form-section button {
-    background-color: #FF5100;
-    color: #FFF4D5;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s;
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Proper alignment */
+    padding: 0 20px;
+    max-width: 1400px; /* Limit navbar width */
+    margin: 0 auto; /* Center the navbar */
 }
 
-.form-section button:hover {
-    background-color: #FF8200;
+.navbar .logo {
+    display: flex;
+    gap: 120px;
+    align-items: center;
 }
-
-.form-section button:focus {
-    outline: 3px solid #FF8200; /* Add a focus outline for accessibility */
+.navbar .logo img {
+    width: 130px;
 }
-
-/* Expense List */
-.expense-list {
-    padding: 20px;
-    background-color: #FF8200;
-    border-radius: 10px;
-    margin: 20px;
-    color: #FFF4D5;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.expense-list h3 {
-    margin-top: 0;
-    color: #FFF4D5;
-}
-
-.expense-list ul {
+.navbar .links {
+    display: flex;
     list-style: none;
-    padding: 0;
+    gap: 35px;
+    margin-left: auto;
+    justify-content: flex-end;
 }
-
-.expense-list li {
-    padding: 10px;
-    border-bottom: 1px solid #FFC929;
+.navbar .links a {
+    text-decoration: none;
+    color: #b5e4e2;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
-
-.expense-list li:last-child {
-    border-bottom: none;
+.navbar .links a:hover{
+    color: #459688;
 }
-
-/* Dashboard */
-.dashboard {
-    padding: 20px;
-    background-color: #FF5100;
+.navbar .signup-btn {
+    border: none;
+    outline: none;
+    color: #459688;
+    background: #b5e4e2;
+    font-size: 1rem;
+    font-weight: 200;
+    padding: 5px 15px;
     border-radius: 10px;
-    margin: 20px;
-    color: #FFF4D5;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-left: 20px;
+    width: auto; /* Limit the button width */
 }
-
-.dashboard h2 {
-    color: #FFF4D5;
+.navbar .signup-btn:hover {
+    background: #fff; /* Change background to white */
+    color: #459688;  /* Ensure text remains the same color */
+    border: 1px solid #b5e4e2; /* Add a subtle border for contrast */
+    transition: background 0.3s, color 0.3s; /* Smooth transition effect */
 }
-
-.dashboard table {
+.blur-bg-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    background-color: #FFF4D5;
-    color: #0A0903;
-    border-radius: 5px;
-    overflow: hidden;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    transition: 0.5s ease;
+}
+.show-popup .blur-bg-overlay {
+    opacity: 1;
+    pointer-events: auto;
 }
 
-.dashboard th, .dashboard td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #FFC929;
+.popup-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 720px;
+    width: 100%;
+    opacity: 0;
+    background: #fff;
+    border: 2px solid #459688;
+    transform: translate(-50%, -50%);
 }
-
-.dashboard th {
-    background-color: #FF5100;
-    color: #FFF4D5;
+.show-popup .popup-form {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease, opacity 0.1s; 
 }
-
-.dashboard td:last-child {
-    font-weight: bold;
+.popup-form .form-box{
+    display: flex;
 }
-
-/* Total Savings */
-.total-week-savings {
-    margin-top: 20px;
-    font-size: 1.2em;
+.popup-form .close-btn{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #878484;
+    cursor: pointer;
+}
+.form-box .form-details{
+    max-width: 330px;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    padding: 0 20px;
     text-align: center;
-    background-color: #FFC929;
-    color: #0A0903;
-    padding: 10px;
-    border-radius: 5px;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    background: url("assets/images/budget.png");
+    background-size: cover;
+    background-position: center;
 }
 
-/* Media Query for Responsiveness */
-@media (max-width: 768px) {
-    .form-section, .expense-list, .dashboard {
-        margin: 10px;
-        padding: 15px;
+.login .form-details{
+    background: url("assets/images/login.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.signup .form-details{
+    background: url("assets/images/signup.png");
+    background-size: cover;
+    background-position: center;
+}
+.form-box h2{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.form-box .form-content{
+    width: 100%;
+    padding: 35px; 
+}
+
+form .input-field {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+form .input-field input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 0 15px;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    border: 1px solid #459688;
+}
+
+.input-field input:focus {
+    border-color: #459688;
+}
+
+.input-field input:is(:focus, :valid){
+    padding: 16px 15px 0;
+}
+
+form .input-field label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    color: #717171;
+    pointer-events: none;
+    transition: all 0.3s ease; /* Smooth animation for moving up */
+    transform: translateY(-50%);
+}
+
+form .input-field input:is(:focus, :valid) + label {
+    transform: translateY(-125%);
+    font-size: 0.8rem;
+    color: #459688;
+}
+
+.form-box a {
+    color: #459688;
+    text-decoration: none;   
+}
+
+.form-box a:hover {
+    text-decoration: underline;
+}
+
+.form-box :where(.forgot-pass, .policy-text){
+    display: inline-flex;
+    margin-top: 14px;
+    font-size: 0.95rem;
+}
+
+button{
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    border-radius: 3px;
+    margin: 25px 0;
+    color: #fff;
+    cursor: pointer;
+    background: #459688;
+    transition: 0.2s ease;
+}
+button:hover{
+    background: #12443b;
+
+}
+.form-box .bottom-link{
+    text-align: center;
+
+}
+
+.popup-form .signup,
+.popup-form .show-signup .signup{
+    display: none;
+}
+
+.popup-form.show-signup .signup {
+    display: flex;
+}
+
+.signup .policy-text{
+    display: flex;
+    align-items: center;
+}
+
+.signup .policy-text input{
+    width: 14px;
+    height: 14px;
+    margin-right: 7px;
+}
+
+@media (max-width: 480px) {
+    .popup-form
+    {
+        width: 90%;
+        overflow-y: auto;
+    }
+    .form-box .form-details{
+        display: none;
     }
 
-    .form-section input, .form-section select, .form-section button {
-        font-size: 0.9em;
-    }
-
-    .dashboard table {
-        font-size: 0.9em;
+    .form-box .form-content{
+        padding: 30px 20px;
+        width: 100%;
     }
 }
